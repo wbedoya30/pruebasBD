@@ -1,0 +1,27 @@
+CREATE DATABASE biblioteca;
+USE biblioteca;
+CREATE TABLE pais(
+    id SMALLINT NOT NULL,
+    nombre VARCHAR (155) NOT NULL,
+    nacionalidad VARCHAR(155) NULL 
+);
+
+---chequear estructura de cosas--------------------------------
+SHOW DATABASES; -- mostrar la bases de datos del sgbd---
+SHOW TABLES;-- ver tablas qde la  base de datos que estamos usando
+DESC pais; --estructura de la tabla
+DROP TABLE (pais);--elimina
+ALTER TABLE pais add PRIMARY KEY(id); --modificar la tabla
+
+CREATE TABLE AUTOR(
+    id SMALLINT NOT NULL PRIMARY KEY,
+    nombre VARCHAR (155) NOT NULL,
+    idpais SMALLINT
+);
+---modificar AUTOR
+ALTER table autor
+ADD CONSTRAINT natalidad
+FOREIGN KEY pais(idpais)
+REFERENCES pais (id);
+
+---integridad referencial
